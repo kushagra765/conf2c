@@ -8,5 +8,8 @@ EXEC = conf2c
 all:
 	$(CC) $(CFLAGS) $(EXEC) $(CFILES)
 
+install:
+	sudo cp $(EXEC) /usr/bin/$(EXEC)
+
 clean:
 	rm $(EXEC)
