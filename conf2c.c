@@ -34,12 +34,20 @@ int conf2c(const char *confpath) {
   fprintf(chdr_p, "%s", "#ifndef _CONFIG_H\n#define _CONFIG_H\n\n");
 
   while (fgets(line, sizeof(line), conf_p)) {
-      /* Check for '='. Note: config should be less than 50. */
+      /* Check for '='. Note: config value should be less than 50. */
       for (int i = 0; i < 50; i++) {
            if (line[i] == '=') {
-              line[i] = '"';
-              line[i+2] = '"';
-              fprintf(chdr_p, "#define %s\n", line);
+              /* Save the config option */
+              char *confopt = line[i+1];
+              /* Remove the equals sign, the config option and
+               * the newline character from 'line'.
+               */
+              line[i] = ' ';
+              line[i+1] = ' ';
+              line[i+2] = ' ';
+              /* Now write the config value and the option */
+              fprintf(chdr_p, "#define %s ", line);
+              fprintf(chdr_p, "'%s'\n", &confopt);
            } else {
               continue;
            }
