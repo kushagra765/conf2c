@@ -1,0 +1,4 @@
+*.o
+config.h
+.config
+conf2c
