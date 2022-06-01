@@ -37,11 +37,8 @@ int conf2c(const char *confpath) {
       /* Check for '='. Note: config should be less than 50. */
       for (int i = 0; i < 50; i++) {
            if (line[i] == '=') {
-              char confopt = line[i+1];
-              line[i] = ' ';
-              line[i+1] = '"';
-              line[i+2] = confopt;
-              line[i+3] = '"';
+              line[i] = '"';
+              line[i+2] = '"';
               fprintf(chdr_p, "#define %s\n", line);
            } else {
               continue;
