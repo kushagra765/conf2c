@@ -10,7 +10,7 @@ If the file `.config` has:<br/>
  CONFIG_SYSFS=y
 ```
 conf2c will create `config.h` with the following content:</br>
-```
+```c
  #ifndef _CONFIG_H
  #define _CONFIG_H
  
