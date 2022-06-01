@@ -2,7 +2,7 @@
 A C program to convert .config to a C header file.
 
 ## What does conf2c do?
-conf2c converts .config to a C header file. See the conversion below. <br/><br/>
+conf2c converts .config to a C header file. See the example below.<br/><br/>
 If the file `.config` has:<br/>
 ```
  CONFIG_DEVFS=n
