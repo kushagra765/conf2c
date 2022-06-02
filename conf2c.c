@@ -31,7 +31,7 @@ int conf2c(const char *confpath) {
   }
   chdr_p = fopen("config.h", "w");
 
-  fprintf(chdr_p, "%s", "#ifndef _CONFIG_H\n#define _CONFIG_H\n\n");
+  fprintf(chdr_p, "#ifndef _CONFIG_H\n#define _CONFIG_H\n\n");
 
   while (fgets(line, sizeof(line), conf_p)) {
      /* Ignore lines starting with '#' */
