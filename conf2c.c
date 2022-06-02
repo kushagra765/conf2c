@@ -34,6 +34,11 @@ int conf2c(const char *confpath) {
   fprintf(chdr_p, "%s", "#ifndef _CONFIG_H\n#define _CONFIG_H\n\n");
 
   while (fgets(line, sizeof(line), conf_p)) {
+     /* Ignore lines starting with '#' */
+      if (line[0] == '#') {
+         continue;
+      }
+
       /* Check for '='. Note: config value should be less than 50. */
       for (int i = 0; i < 50; i++) {
            if (line[i] == '=') {
